@@ -598,10 +598,10 @@ public class SwitchButton extends CompoundButton {
 	}
 
 	@Override
-	public void setChecked(final boolean checked) {
+	public void setChecked(final boolean checked) { //on:checked==true  off:checked==false
 		// animate before super.setChecked() become user may call setChecked again in OnCheckedChangedListener
 		StackTraceElement ste= Thread.currentThread().getStackTrace()[2];
-		Log.e(MainActivity.tag, "605/"+ste.getFileName()+" ,in "+ste.getMethodName());
+		Log.e(MainActivity.tag, "605/"+ste.getFileName()+" ,in "+ste.getMethodName()+" isChecked()="+isChecked() +" checked="+checked);
 		if (isChecked() != checked) {
 			animateToState(checked);
 		}
