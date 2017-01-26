@@ -5,9 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="lock_mode">
-        <item>2 Locks</item>
-        <item>1 Locks</item>
+    <string-array name="lunch">
+        <item>chicken</item>
+        <item>beef</item>
+        <item>pork</item>
+        <item>fish</item>
+        <item>duck</item>
     </string-array>
 
 </resources>
