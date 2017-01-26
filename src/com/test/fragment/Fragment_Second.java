@@ -13,10 +13,21 @@ import android.view.ViewGroup;
 
 public class Fragment_Second extends Fragment{
     private View rootView;
+    private FragmentCallBack fragmentCallBack = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if(container==null)return null;
         rootView = inflater.inflate(R.layout.fragment_second, container,false);
+       
+        Bundle mBundle = new Bundle();
+        mBundle.putInt("FragmentName", FragmentMain.intFragment_Second);
+        fragmentCallBack.fragmentCallBack(mBundle);
         return rootView;
     }
+    
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		fragmentCallBack = (FragmentMain) activity;
+	}
 }

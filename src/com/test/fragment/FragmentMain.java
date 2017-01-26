@@ -1,9 +1,11 @@
 package com.test.fragment;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 //import android.support.v4.app.Fragment;
 //import android.support.v4.app.FragmentTransaction;
@@ -16,10 +18,14 @@ import android.view.View.OnClickListener;
 import com.test.fragment.Fragment_Third;
 import com.example.testandroid.R;
 
-	public class FragmentMain extends Activity implements OnClickListener{
+	public class FragmentMain extends Activity implements OnClickListener, FragmentCallBack{
 		Fragment mFragment_Third, mFragment_First, mFragment_Second;
 		FragmentManager mFragmentManager;
 		android.app.FragmentTransaction mFragmentTransaction;
+		public static final int  intFragment_First = 1;
+		public static final int  intFragment_Second = 2;
+		public static final int  intFragment_Third = 3;
+		
 		    @Override
 		    protected void onCreate(Bundle savedInstanceState) {
 		        // TODO Auto-generated method stub
@@ -40,7 +46,6 @@ import com.example.testandroid.R;
 		    }
 			@Override
 			public void onClick(View arg0) {
-				Log.e("Iris", "getId="+arg0.getId());
 		        switch (arg0.getId()) {
 		        case R.id.btn_one:
 		            // 加载不同的Fragment
@@ -73,6 +78,24 @@ import com.example.testandroid.R;
 		        default:
 		            break;
 		        }
+				
+			}
+			@Override
+			public void fragmentCallBack(Bundle mBundle) {
+				switch (mBundle.getInt("FragmentName")) {
+				case intFragment_First:
+					Log.e("Iris", "fragmentCallBack/come from Fragment_First");
+					
+					break;
+				case intFragment_Second:
+					Log.e("Iris", "fragmentCallBack/come from Fragment_Second");
+					break;
+				case intFragment_Third:
+					Log.e("Iris", "fragmentCallBack/come from Fragment_Third");
+					break;
+				default:
+					break;
+				}
 				
 			}
 
